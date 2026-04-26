@@ -1,76 +1,55 @@
-# 🦴 Bone Scan Metastasis Detection
+🦴 Bone Scan Metastasis Detection
 
-> AI pipeline for bone metastasis detection from nuclear medicine bone scans. Uses dual-view CNN with Focal Loss achieving 100% recall, Grad-CAM explainability, automatic hotspot detection, and Vision Transformer comparison.
+AI pipeline for detecting bone metastasis from nuclear medicine bone scans using deep learning.
 
-**Authors:** Babar Khan Durrani · Haleema Rehman  
-**Institution:** Bahria University, BSEAS
+This project implements a dual-view CNN framework (Anterior + Posterior) with advanced techniques like Focal Loss, Grad-CAM explainability, and automatic hotspot detection, along with a comparison against a Vision Transformer (ViT).
 
----
+👨‍💻 Authors
+Babar Khan Durrani
+Haleema Rehman
 
-## 📊 Results
+Institution: Bahria University, BSEAS
 
-| Model | Recall | Caught | mAP |
-|---|---|---|---|
-| Baseline CNN | 53% | 8/15 | 0.149 |
-| Augmented CNN | 73% | 11/15 | 0.221 |
-| **Focal Loss CNN** ⭐ | **100%** | **15/15** | **0.279** |
-| Vision Transformer | 27% | 4/15 | 0.184 |
+📊 Results
+Model	Recall	Caught	mAP
+Baseline CNN	53%	8/15	0.149
+Augmented CNN	73%	11/15	0.221
+⭐ Focal Loss CNN	100%	15/15	0.279
+Vision Transformer	27%	4/15	0.184
 
-> 🏆 Focal Loss CNN at threshold 0.25 catches every cancer case — zero missed.
+🏆 Key Insight:
+The Focal Loss CNN achieves 100% recall at threshold = 0.25, meaning:
+➡️ Zero missed cancer cases
 
-## 🚀 How to Run
+🚀 Features
+✅ Dual-view learning (ANT + POST scans)
+✅ Focal Loss for class imbalance
+✅ Grad-CAM heatmaps for explainability
+✅ Automatic hotspot (lesion) detection
+✅ Interactive image analysis tool
+✅ Vision Transformer comparison
 
-```bash
-# 1. Upload these files to Colab:
-#    - kneeLANT.zip, kneeLPOST.zip
-#    - kneeLANT.txt, kneeLPOST.txt (labels)
-#    - best_cnn_baseline.keras
-#    - best_cnn_aug.keras
-#    - best_cnn_focal.keras
-#    - best_vit.keras
+🔍 Outputs include:
 
+Prediction (Metastasis / Non-metastasis)
+Confidence score
+Grad-CAM heatmap
+Detected hotspots
 
-### Interactive Image Checker
-```
-Enter image number (e.g. 1234) | type 'quit' to exit: 1234
-Choose view: 1 = ANT | 2 = POST | 3 = BOTH: 1
-```
+⚖️ Responsible AI
+Threshold 0.25 ensures zero missed cancer cases
+Grad-CAM used for model transparency
+Designed as a decision support system, not a replacement
 
----
+⚠️ Important:
+This project is not approved for clinical use and should only be used for research and educational purposes.
 
-## 📂 Structure
+📌 Future Work
+Improve dataset size and diversity
+Clinical validation with radiologists
+Deployment as a web-based diagnostic tool
+Improve Vision Transformer performance
+⭐ Contribution
 
-```
-bone-scan-metastasis-detection/
-├── bone_scan_no_training.py    ← Main code (load models + full analysis)
-├── requirements.txt
-├── results/                    ← All output images
-└── report/
-    └── bone_scan_report.tex    ← LaTeX report
-```
-
----
-
-## 📦 Requirements
-
-```
-tensorflow>=2.19.0
-opencv-python
-numpy pandas matplotlib seaborn scikit-learn Pillow
-```
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## ⚖️ Responsible AI
-
-- Threshold 0.25 → zero missed cancer cases
-- Grad-CAM heatmap on every prediction
-- Decision support tool — not a replacement for radiologists
-
----
-
-*Not intended for clinical use without regulatory approval.*
+Feel free to fork, improve, and contribute to this project.
+Pull requests are welcome!
