@@ -1,0 +1,10 @@
+Upload Files to Google Colab
+kneeLANT.zip
+kneeLPOST.zip
+kneeLANT.txt
+kneeLPOST.txt
+
+best_cnn_baseline.keras
+best_cnn_aug.keras
+best_cnn_focal.keras
+best_vit.keras
